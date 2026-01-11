@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>QuantumOS811 — Preview</title>
+  </head>
+  <body>
+    <main>
+      <h1>QuantumOS811 — Deploy Preview</h1>
+      <p id="status">Cargando agente...</p>
+      <button id="testFirebase">Ejecutar testFirebase (ver consola)</button>
+    </main>
+
+    <script type="module">
+      import { initAgent, testFirebase } from './src/main.js'
+
+      document.getElementById('status').textContent = 'Iniciando agente (modo seguro)...'
+
+      initAgent().then(() => {
+        document.getElementById('status').textContent = 'Agente iniciado (revisa consola para logs)'
+      }).catch(e => {
+        document.getElementById('status').textContent = 'Error iniciando agente (ver consola)'
+        console.error('Error initAgent:', e)
+      })
+
+      document.getElementById('testFirebase').addEventListener('click', async () => {
+        await testFirebase()
+        alert('testFirebase ejecutado — revisa la consola para resultados')
+      })
+    </script>
+  <div data-netlify-deploy-id="696330213c67a90008e0ad0e" data-netlify-site-id="a3413f89-0a61-45af-869f-cef5c5a03820" data-vcs="github" style="position:fixed">
+  
+  <script async src="/.netlify/scripts/cdp"></script>
+</div></body>
+</html>
