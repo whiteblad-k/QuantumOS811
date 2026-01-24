@@ -6,8 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    if: ${{ hashFiles('package.json') != '' }}
     name: Build & Test
     runs-on: ubuntu-latest
     env:
@@ -38,7 +42,12 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Build
         run: npm run build --if-present
@@ -54,6 +63,7 @@ jobs:
           path: dist
 
   lint:
+    if: ${{ hashFiles('package.json') != '' }}
     name: Lint
     runs-on: ubuntu-latest
     steps:
@@ -62,6 +72,11 @@ jobs:
         with:
           node-version: '18'
       - name: Install deps
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
       - name: Run linter
         run: npm run lint --if-present

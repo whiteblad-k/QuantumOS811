@@ -7,6 +7,5 @@ No comitees un archivo `.env` con claves. Copia `.env.example` a `.env` para des
 
 ## Integración CI ✅
 
-Se añadió un workflow de GitHub Actions (`.github/workflows/ci.yml`) que instala dependencias, ejecuta `npm run build` y `npm test` si están definidos, y sube el artefacto `dist` como build. Define los secretos `VITE_FIREBASE_*` en GitHub y no los subas al repo.
-
+Se añadió un workflow de GitHub Actions (`.github/workflows/ci.yml`) que instala dependencias (con `npm ci` si hay lockfile o `npm install` si no), ejecuta `npm run build` y `npm test` si están definidos, y sube el artefacto `dist` como build. El CI se omite si no existe `package.json`. Define los secretos `VITE_FIREBASE_*` en GitHub y no los subas al repo.
 

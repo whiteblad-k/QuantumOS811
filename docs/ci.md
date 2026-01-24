@@ -1,6 +1,6 @@
 # CI / GitHub Actions
 
-Este proyecto ya incluye un workflow de CI que instala dependencias, construye la app y ejecuta tests/lint si existen.
+Este proyecto ya incluye un workflow de CI que instala dependencias (con `npm ci` si hay lockfile o `npm install` si no), construye la app y ejecuta tests/lint si existen. El CI se omite si no existe `package.json`.
 
 Variables necesarias (añádelas como **Secrets** en GitHub repository Settings > Secrets > Actions):
 
