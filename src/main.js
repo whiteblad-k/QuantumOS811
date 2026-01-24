@@ -159,8 +159,8 @@ export async function testFirebase() {
 export async function initAgent() {
   log("🧠 Init Agent: enlazando todo...")
 
-  // placeholder para initAnalytics si tienes
-  // Note: initAnalytics is not defined yet, so we skip it for now
+  // TODO: Implement initAnalytics() function for tracking and telemetry
+  // This will be added when analytics infrastructure is set up
 
   const ok = await initFirebase()
   if (!ok) {
