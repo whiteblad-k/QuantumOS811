@@ -27,7 +27,6 @@ let app = null
 let db = null
 let rtdb = null
 let rc = null
-let stopFs = null
 
 function isPlaceholder(v) {
   return !v || v === 'TU_API_KEY' || v === 'TU_PROYECTO' || v === 'XXXX' || v === 'G-XXXX'
@@ -73,7 +72,7 @@ export function startFirestoreListener() {
   const col = collection(db, "agent_logs")
   const qy = query(col, orderBy("timestamp", "desc"), limit(10))
 
-  stopFs = onSnapshot(qy, (snap) => {
+  onSnapshot(qy, (snap) => {
     snap.docChanges().forEach((ch) => {
       if (ch.type === "added") {
         log(`📥 Firestore agent_logs: ${JSON.stringify(ch.doc.data())}`)
@@ -160,8 +159,8 @@ export async function testFirebase() {
 export async function initAgent() {
   log("🧠 Init Agent: enlazando todo...")
 
-  // placeholder para initAnalytics si tienes
-  try { await (typeof initAnalytics === 'function' ? initAnalytics() : Promise.resolve()) } catch (_) {}
+  // TODO: Implement initAnalytics() function for tracking and telemetry
+  // This will be added when analytics infrastructure is set up
 
   const ok = await initFirebase()
   if (!ok) {
