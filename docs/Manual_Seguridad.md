@@ -23,3 +23,15 @@ Ante una sospecha de intrusión o para auditoría periódica:
 1. Verifica si el dispositivo es nuevo pero legítimo (ej. un invitado, un nuevo IoT).
 2. Si es legítimo, añade la IP a `security/known_devices.txt`.
 3. Si no es reconocido, inicia protocolos de aislamiento de red (desconexión o cambio de clave WiFi).
+## 📊 Centro de Mando: Dashboard de Persistencia
+El script `security/dashboard.sh` proporciona una visión en tiempo real del estado de la red.
+
+### Lógica de Visualización (Código ANSI)
+- **Azul (ACTIVO):** Dispositivos con menos de 5 horas de conexión.
+- **Amarillo (PERSISTENTE):** Dispositivos con una conexión entre 5 y 10 horas.
+- **Rojo/Parpadeante (CRÍTICO):** Dispositivos con más de 10 horas de conexión.
+
+### Requisitos del Sistema
+- `security/session_start.log`: Archivo donde se registra el inicio de sesión de cada IP detectada.
+- El script calcula la diferencia de tiempo en segundos desde `session_start` hasta el momento actual (`date +%s`).
+
