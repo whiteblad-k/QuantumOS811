@@ -35,3 +35,11 @@ El script `security/dashboard.sh` proporciona una visión en tiempo real del est
 - `security/session_start.log`: Archivo donde se registra el inicio de sesión de cada IP detectada.
 - El script calcula la diferencia de tiempo en segundos desde `session_start` hasta el momento actual (`date +%s`).
 
+## 🛡️ Dashboard Interactivo V2
+El sistema ha sido actualizado a una arquitectura de menú persistente (`dashboard_v2.sh`).
+- **Optimización:** Ahora se ejecuta bajo demanda, eliminando la carga innecesaria en la RAM al iniciar el terminal.
+- **Funcionalidades:**
+    1) Escaneo de red (nmap).
+    2) Consulta de Blacklist.
+    3) Salida segura.
+
