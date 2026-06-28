@@ -1,16 +1,15 @@
-# Security Policy
+# Security Policy for QuantumOS811
 
-## Reporting a Vulnerability
+## 🛡 Scope & Purpose
+QuantumOS811 está diseñado exclusivamente para auditorías de seguridad, investigación de radiofrecuencia (RF) y simulación de vulnerabilidades. El uso de estas herramientas debe limitarse a entornos controlados o infraestructura propia.
 
-If you discover a security vulnerability within this project, please send an email to [your-email@example.com] with the details of the vulnerability. We take all security reports seriously and will respond promptly.
+## ⚠️ Protocolos de Auditoría (WTC)
+1. **RF Auditing:** Se prohíbe la interferencia en bandas de emergencia o servicios críticos.
+2. **OSINT/Network:** El reconocimiento debe respetar los términos de servicio de los objetivos.
+3. **Simulaciones:** Las pruebas de ataques cuánticos o de red se realizan exclusivamente sobre entornos de prueba (Staging).
 
-## Supported Versions
+## 🔐 Integridad (Safe Creative)
+Todos los scripts y binarios están registrados en Safe Creative para garantizar la trazabilidad y evitar la inyección de código malicioso.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
-
-## Security Updates
-
-We recommend that all users upgrade to the latest version to ensure they receive security updates.
+## 🗝 Reporte de Vulnerabilidades
+Si identificas un vector de ataque o brecha en la replicación de GhostRider, contacta directamente al autor: bladyk2.0@proton.me.
